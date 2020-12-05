@@ -1,4 +1,4 @@
-language: generic
+language: node_js
 sudo: required
 services:
   - docker
@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true shawnmittal/docker-react-testing npm run test
+
+deploy:
+  provider: elasticbeanstock
+  region: "us-east-1"
+  app: "docker-react-test"
+  env: "DockerReactTest-env"
+  bucket_name: "elasticbeanstalk-us-east-1-233770088584"
+  bucket_path: "docker-react-test"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
