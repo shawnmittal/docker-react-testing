@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - 12
 sudo: required
 services:
   - docker
@@ -10,7 +12,7 @@ script:
   - docker run -e CI=true shawnmittal/docker-react-testing npm run test
 
 deploy:
-  provider: elasticbeanstock
+  provider: elasticbeanstalk
   region: "us-east-1"
   app: "docker-react-test"
   env: "DockerReactTest-env"
