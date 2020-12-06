@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import DemoMap from "./components/DemoMap";
+import { mountains } from "./components/utils/Utils"
+import "leaflet/dist/leaflet.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          I was changed.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    mountains: mountains,
+  };
+
+  render() {
+    return (
+      <div>
+        <DemoMap
+          mountains={this.state.mountains}
+        />
+      </div>
+    );
+  }
 }
-
 export default App;
