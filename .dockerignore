@@ -1,0 +1,4 @@
+scripts/
+.eslintcache
+Dockerfile.dev
+README.md
